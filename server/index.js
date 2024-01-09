@@ -17,7 +17,6 @@ const saltLevel = 8;
 app.post("/userLogin", async (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
-  console.log(req.body)
       try {
         const user = await userModel.findOne({ username });
         if (user) {

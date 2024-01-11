@@ -113,7 +113,7 @@ function App() {
 
   return (
     <div>
-      <h2>hello</h2>
+      <h2 className="m-10">hello</h2>
       <button onClick={openloginmodal}>Login</button>
       <button onClick={opensignupmodal}>Signup</button>
       {loginmodal ? (

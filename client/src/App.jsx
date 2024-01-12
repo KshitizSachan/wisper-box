@@ -86,7 +86,7 @@ function App() {
   return (
     <div className="box-border">
     <Navbar setUserToken={setUserToken}/>
-    <div className="pl-5 pr-5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white">
+    <div className="pb-10 pl-10 pr-10 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white">
       <button onClick={openAddmodal} className="bg-pink-500 text-white px-4 py-2 rounded hover:scale-105 transition-transform duration-300 ease-in-out" >Wisper Something</button>
       {addmodal ? (
         <div className="my-4 mx-4 p-4 border border-gray-300 rounded" >
@@ -94,13 +94,13 @@ function App() {
             value={title}
             placeholder="Enter title"
             onInput={handleTitleInput}
-            className="mb-2 p-2 border border-gray-300 rounded w-full"
+            className="mb-2 p-2 border border-gray-300 text-black rounded w-full"
           ></input>
           <input
             value={description}
             placeholder="Enter description"
             onInput={handleDescriptionInput}
-            className="mb-2 p-2 border border-gray-300 rounded w-full"
+            className="mb-2 p-2 border border-gray-300 text-black rounded w-full"
           ></input>
           <button onClick={handleWisper} className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-blue-600" >Submit</button>
         </div>

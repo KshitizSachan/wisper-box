@@ -17,7 +17,9 @@ const login = async (req,res) =>
           res.status(500).json({ msg: "Internal Server Error" });
         } else if (result) {
           // Passwords match, generate and send JWT token
-          const token = jwt.sign({ username: username }, jwtPassword);
+          const token = jwt.sign({ username: username }, jwtPassword, {
+            expiresIn:'4d',
+          });
           res.json({
             msg: "Successfully logged in",
             token: token,

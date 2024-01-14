@@ -20,7 +20,9 @@ const signup = async (req,res) =>
       });
     }
   });
-  const token = jwt.sign({ username: username }, jwtPassword);
+  const token = jwt.sign({ username: username }, jwtPassword, {
+    expiresIn:'4d',
+  });
   res.json({
     msg: "User created",
     token: token,

@@ -2,13 +2,11 @@
 import React from 'react';
 import { useState} from "react";
 
-const Navbar = (props) => {
+const Navbar = () => {
   
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginmodal, setLoginmodal] = useState(0);
-  const [token, setToken] = useState("");
- 
   const [signupmodal, setSignupmodal] = useState(0);
 
   
@@ -43,8 +41,7 @@ const Navbar = (props) => {
       body: JSON.stringify(credentials),
     }).then(async (response) => {
       const result = await response.json();
-      setToken(result.token);
-      props.setUserToken(token)
+      localStorage.setItem('session-token', result.token);
       alert(result.msg);
     });
   };
@@ -63,8 +60,7 @@ const Navbar = (props) => {
     })
     .then(async(response) =>{
       const result = await response.json()
-      setToken(result.token)
-      props.setUserToken(token)
+      localStorage.setItem('session-token', result.token);
       alert(result.msg)
     })
   }

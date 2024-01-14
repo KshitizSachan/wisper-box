@@ -2,14 +2,6 @@ import { useState, useEffect } from "react";
 import Navbar from "./components/navbar";
 import "./App.css";
 
-
-// function truncateText(text, maxLength) {
-//   if (text.length > maxLength) {
-//     return text.substring(0, maxLength) + '...';
-//   }
-//   return text;
-// }
-
 const truncateText = (text, maxLength) => {
   if (text.length <= maxLength) {
     return text;
@@ -17,7 +9,6 @@ const truncateText = (text, maxLength) => {
     return text.slice(0, maxLength) + '...';
   }
 };
-
 
 function App() {
   const [wispers, setWispers] = useState([]);
@@ -29,7 +20,10 @@ function App() {
   const [wispernotification, setWispernotification] = useState(0);
   const [openbox, setOpenbox] = useState("");
   
- // comment to check
+ useEffect(() =>{
+const sessionToken = localStorage.getItem('session-token');
+setToken(sessionToken);
+ }, [])
 
   const handleTitleInput = (input) => {
     setTitle(input.target.value);
@@ -71,10 +65,6 @@ function App() {
     });
   }, [wispernotification]);
 
-  const setUserToken = (tokenFromChild) =>{
-    setToken(tokenFromChild);
-  }
-
   const handleOpenBox = (id) =>{
     if(openbox===id){
       setOpenbox("")
@@ -85,7 +75,7 @@ function App() {
 
   return (
     <div className="box-border">
-    <Navbar setUserToken={setUserToken}/>
+    <Navbar />
     <div className="pb-10 pl-10 pr-10 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white">
       <button onClick={openAddmodal} className="bg-pink-500 text-white px-4 py-2 rounded hover:scale-105 transition-transform duration-300 ease-in-out" >Wisper Something</button>
       {addmodal ? (
